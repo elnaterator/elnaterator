@@ -7,11 +7,10 @@
  * # MainCtrl
  * Controller of the elnateratorgithubioApp
  */
-angular.module('elnateratorgithubioApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+var app = angular.module('nateratorApp');
+
+app.controller('MainCtrl', function($scope, Nursery) {
+
+  $scope.nurseries = Nursery.query();
+
+});

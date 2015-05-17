@@ -9,20 +9,21 @@
  * Main module of the application.
  */
 angular
-  .module('elnateratorgithubioApp', [
+  .module('nateratorApp', [
     'ngResource',
     'ngRoute',
-    'ngSanitize'
+    'ngSanitize',
+    'ngLodash'
   ])
-  .config(function ($routeProvider) {
+  .config(function($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
+      .when('/nursery/:id', {
+        templateUrl: 'views/nursery.html',
+        controller: 'NurseryCtrl'
       })
       .otherwise({
         redirectTo: '/'
