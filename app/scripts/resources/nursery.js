@@ -1,7 +1,7 @@
 'use strict';
 
-var app = angular.module('nateratorApp');
+var app = angular.module('MainApp');
 
-app.factory('Nursery', function($resource) {
-  return $resource('http://localhost:9000/static/nurseries/:id.json');
+app.factory('Nursery', function(DreamFactory) {
+  return DreamFactory.api
 });
