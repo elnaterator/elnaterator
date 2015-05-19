@@ -1,27 +1,21 @@
 'use strict';
 
-/**
- * @ngdoc overview
- * @name elnateratorgithubioApp
- * @description
- * # elnateratorgithubioApp
- *
- * Main module of the application.
- */
 var app = angular
   .module('MainApp', [
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngLodash',
-    'ngDreamFactory'
+    'ngLodash'
   ]);
 
-app
-  .constant('DSP_URL', 'http://naterator-dreamfactory.herokuapp.com:80')
-  .constant('DSP_API_KEY', 'testapp')
+// App Config
+app.constant('conf', {
+  backend: 'http://naterator-dreamfactory.herokuapp.com:80/rest'
+})
 
-app.config(function($routeProvider) {
+app.config(function($routeProvider, $httpProvider) {
+
+  // Routing
   $routeProvider
     .when('/', {
       templateUrl: 'views/main.html',
@@ -34,4 +28,8 @@ app.config(function($routeProvider) {
     .otherwise({
       redirectTo: '/'
     });
+
+  // Default headers
+  $httpProvider.defaults.headers.common['X-DreamFactory-Application-Name'] = 'testapp';
+
 });

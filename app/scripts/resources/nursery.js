@@ -2,6 +2,6 @@
 
 var app = angular.module('MainApp');
 
-app.factory('Nursery', function(DreamFactory) {
-  return DreamFactory.api
+app.factory('Nursery', function() {
+  return {};//$resource("http://naterator-dreamfactory.herokuapp.com:80/rest/db/nurseries");
 });

@@ -1,25 +1,26 @@
 'use strict';
 
-/**
- * @ngdoc function
- * @name elnateratorgithubioApp.controller:MainCtrl
- * @description
- * # MainCtrl
- * Controller of the elnateratorgithubioApp
- */
 var app = angular.module('MainApp');
 
-app.controller('MainCtrl', function($scope, DreamFactory) {
+app.controller('MainCtrl', function($scope, $resource, conf) {
+
+  console.log(conf);
+  var Nursery = $resource(conf.backend + '/db/nurseries/:id', {}, {
+    'all': {
+      method: 'GET',
+      isArray: false
+    }
+  });
 
   $scope.getNurseries = function() {
-    console.log(DreamFactory.api.db);
-    DreamFactory.api.db.getRecords({table_name:"nurseries"},
-      function(result) {
-        $scope.nurseries = result.record;
-        console.log(result);
-      }
-    );
-
+    $scope.isLoading = true;
+    var response = Nursery.all(function() {
+      console.log(response.record);
+      $scope.nurseries = response.record;
+      $scope.isLoading = false;
+    });
   }
+
+  $scope.isLoading = false;
 
 });
