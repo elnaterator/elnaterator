@@ -8,11 +8,7 @@
  * Controller of the elnateratorgithubioApp
  */
 angular.module('MainApp')
-  .controller('NurseryCtrl', function ($scope, $routeParams, lodash) {
-    var _ = lodash;
-    var id = $routeParams.id;
-
-    $scope.nursery = Nursery.get({"id":id});
-    console.log($scope.nursery);
+  .controller('NurseryCtrl', function ($scope) {
+    $scope.example = 'hello';
 
   });

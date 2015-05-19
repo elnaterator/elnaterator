@@ -19,7 +19,7 @@ app.controller('MainCtrl', function($scope, $resource, conf) {
       $scope.nurseries = response.record;
       $scope.isLoading = false;
     });
-  }
+  };
 
   $scope.isLoading = false;
 

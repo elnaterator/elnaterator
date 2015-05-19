@@ -11,7 +11,7 @@ var app = angular
 // App Config
 app.constant('conf', {
   backend: 'http://naterator-dreamfactory.herokuapp.com:80/rest'
-})
+});
 
 app.config(function($routeProvider, $httpProvider) {
 
